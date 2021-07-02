@@ -3,10 +3,8 @@ from tkinter import *
 import glob
 from tkinter import Tk, Button
 from PIL import Image
-
 import os
-
-
+#I used some prints just to check on the terminal that everything was going well
 
 def browse_button():
     global folder_path
@@ -14,7 +12,6 @@ def browse_button():
     filename = filedialog.askdirectory()
     folder_path.set(filename)
     print(filename)
-
 
 def browse_button2():
      print(filename)
@@ -29,13 +26,10 @@ def browse_button2():
      folder_path.set(filename2)
      print(filename2)
 
-
-
      for image in glob.glob(filename + '/*.jpg'):
          counter = counter + 1
          img = Image.open(image)
          img.save(os.path.join(filename2, str(counter) + '.png'))
-
 
 root = Tk()
 root.geometry('400x400')
@@ -43,10 +37,8 @@ root.title('JPG to PNG')
 root.configure(background='white')
 folder_path = StringVar()
 
-
 button2 = Button(text="Select", command=browse_button)
 button2.place(x=10, y=10)
-
 
 button3 = Button(text="Convert", command=browse_button2)
 button3.place(x=10, y=200)
